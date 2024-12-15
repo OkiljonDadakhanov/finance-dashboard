@@ -45,15 +45,6 @@ const CurrencyConverter = () => {
         </select>
       </div>
       <div className="form-group">
-        <label>Ma’lum miqdor:</label>
-        <input
-          type="number"
-          value={amount}
-          onChange={(e) => setAmount(e.target.value)}
-          className="form-control"
-        />
-      </div>
-      <div className="form-group">
         <label>Maqsad Valyutasi:</label>
         <select
           value={targetCurrency}
@@ -65,6 +56,16 @@ const CurrencyConverter = () => {
           <option value="UZS">UZS</option>
         </select>
       </div>
+      <div className="form-group">
+        <label>Ma’lum miqdor:</label>
+        <input
+          type="number"
+          value={amount}
+          onChange={(e) => setAmount(e.target.value)}
+          className="form-control"
+        />
+      </div>
+
       <button onClick={handleConvert} className="btn btn-primary mt-3">
         Konvertatsiya qilish
       </button>
