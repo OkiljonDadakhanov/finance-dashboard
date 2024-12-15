@@ -1,40 +1,75 @@
-import React, { useEffect, useState, useContext } from "react";
-import { FinanceContext } from "../../context/FinanceContext";
-import { fetchExchangeRates } from "../../utils/api";
+import React, { useState, useEffect } from "react";
 
-function CurrencyConverter() {
-  const { setCurrencyRates } = useContext(FinanceContext);
+const CurrencyConverter = () => {
+  const [exchangeRates, setExchangeRates] = useState({});
+  const [baseCurrency, setBaseCurrency] = useState("USD");
   const [amount, setAmount] = useState(1);
-  const [converted, setConverted] = useState(0);
-  const [toCurrency, setToCurrency] = useState("UZS");
+  const [convertedAmount, setConvertedAmount] = useState(null);
+  const [targetCurrency, setTargetCurrency] = useState("EUR");
 
   useEffect(() => {
-    fetchExchangeRates().then((rates) => setCurrencyRates(rates));
-  }, [setCurrencyRates]);
+    const fetchExchangeRates = async () => {
+      try {
+        const response = await fetch(
+          `https://v6.exchangerate-api.com/v6/${process.env.REACT_APP_EXCHANGE_RATE_API_KEY}/latest/${baseCurrency}`
+        );
+        const data = await response.json();
+        setExchangeRates(data.conversion_rates);
+      } catch (error) {
+        console.error("APIdan valyuta kursini olishda xato:", error);
+      }
+    };
 
-  const handleConvert = (rates) => {
-    setConverted(amount * (rates[toCurrency] || 1));
+    fetchExchangeRates();
+  }, [baseCurrency]);
+
+  const handleConvert = () => {
+    if (exchangeRates[targetCurrency]) {
+      setConvertedAmount(amount * exchangeRates[targetCurrency]);
+    }
   };
 
   return (
-    <div>
-      <input
-        type="number"
-        value={amount}
-        onChange={(e) => setAmount(e.target.value)}
-      />
-      <select
-        value={toCurrency}
-        onChange={(e) => setToCurrency(e.target.value)}
-      >
-        <option value="UZS">UZS</option>
-        <option value="EUR">EUR</option>
-        <option value="USD">USD</option>
-      </select>
-      <button onClick={() => handleConvert()}>Convert</button>
-      <p>Converted Amount: {converted}</p>
+    <div className="container mt-4">
+      <h1>Valyuta Konvertori</h1>
+      <div className="form-group">
+        <label>Asosiy Valyuta:</label>
+        <input
+          type="text"
+          value={baseCurrency}
+          onChange={(e) => setBaseCurrency(e.target.value.toUpperCase())}
+          className="form-control"
+        />
+      </div>
+      <div className="form-group">
+        <label>Ma’lum miqdor:</label>
+        <input
+          type="number"
+          value={amount}
+          onChange={(e) => setAmount(e.target.value)}
+          className="form-control"
+        />
+      </div>
+      <div className="form-group">
+        <label>Maqsad Valyutasi:</label>
+        <input
+          type="text"
+          value={targetCurrency}
+          onChange={(e) => setTargetCurrency(e.target.value.toUpperCase())}
+          className="form-control"
+        />
+      </div>
+      <button onClick={handleConvert} className="btn btn-primary mt-3">
+        Konvertatsiya qilish
+      </button>
+      {convertedAmount && (
+        <h2 className="mt-4">
+          Natija: {amount} {baseCurrency} = {convertedAmount.toFixed(2)}{" "}
+          {targetCurrency}
+        </h2>
+      )}
     </div>
   );
-}
+};
 
 export default CurrencyConverter;
