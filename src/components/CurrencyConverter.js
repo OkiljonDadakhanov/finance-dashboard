@@ -34,12 +34,15 @@ const CurrencyConverter = () => {
       <h1>Valyuta Konvertori</h1>
       <div className="form-group">
         <label>Asosiy Valyuta:</label>
-        <input
-          type="text"
+        <select
           value={baseCurrency}
           onChange={(e) => setBaseCurrency(e.target.value.toUpperCase())}
           className="form-control"
-        />
+        >
+          <option value="USD">USD</option>
+          <option value="EUR">EUR</option>
+          <option value="UZS">UZS</option>
+        </select>
       </div>
       <div className="form-group">
         <label>Ma’lum miqdor:</label>
@@ -52,12 +55,15 @@ const CurrencyConverter = () => {
       </div>
       <div className="form-group">
         <label>Maqsad Valyutasi:</label>
-        <input
-          type="text"
+        <select
           value={targetCurrency}
           onChange={(e) => setTargetCurrency(e.target.value.toUpperCase())}
           className="form-control"
-        />
+        >
+          <option value="USD">USD</option>
+          <option value="EUR">EUR</option>
+          <option value="UZS">UZS</option>
+        </select>
       </div>
       <button onClick={handleConvert} className="btn btn-primary mt-3">
         Konvertatsiya qilish
