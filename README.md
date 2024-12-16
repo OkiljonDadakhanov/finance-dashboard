@@ -37,24 +37,29 @@ npm start
 
 Brauzeringizda http://localhost:3000 sahifasini ochib dasturdan foydalanishingiz mumkin.
 
-Eslatma: Kodga o'zgartirish kiritganingizda sahifa avtomatik tarzda qayta yuklanadi.
+**Eslatma:** Kodga o'zgartirish kiritganingizda sahifa avtomatik tarzda qayta yuklanadi.
 
-Loyihadan Foydalanish
-Tranzaktsiya qo'shish:
+## Loyihadan Foydalanish
+
+**Tranzaktsiya qo'shish:**
+
 Yangi daromad yoki xarajatni kiritish uchun miqdor, tavsif va turini tanlang.
 
-Grafik ko'rinish:
+**Grafik ko'rinish:**
 
 Daromadlar yashil rangda ko'rsatiladi.
 Xarajatlar qizil rangda ko'rsatiladi.
 Hisobotlar: Moliyaviy oqimlarni grafik orqali ko'rishingiz mumkin.
 
-Loyihani Ishlab Chiqishda Foydalanilgan Texnologiyalar
+**Loyihani Ishlab Chiqishda Foydalanilgan Texnologiyalar:**
+
 React.js – foydalanuvchi interfeyslarini yaratish.
 Recharts – ma'lumotlarni grafik ko'rinishida ko'rsatish.
-Tailwind CSS – loyihani dizaynlash uchun.
-Ishlash Jarayoni
-Loyiha ishga tushirilgandan so'ng:
+Bootstrap – loyihani dizaynlash uchun.
+
+## Ishlash Jarayoni
+
+**Loyiha ishga tushirilgandan so'ng:**
 
 Tranzaktsiyalar qo'shiladi va grafikda aks ettiriladi.
 Ma'lumotlar dinamik ravishda Context API orqali boshqariladi.
@@ -69,3 +74,5 @@ Kelajakdagi Yaxshilanishlar
 Mahalliy xotira: Tranzaktsiyalarni brauzer xotirasida saqlash.
 Filtr funksiyasi: Sana va miqdorga qarab tranzaktsiyalarni saralash.
 Backend bog'lanishi: Ma'lumotlarni serverda saqlash.
+
+_Yuqoridagi README.md sintaksislar [Github docs](#https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax) orqali tayyorlandi._
