@@ -45,11 +45,11 @@ function BalanceSummary() {
   }
 
   return (
-    <div className="text-center">
-      <h4>Balance Summary</h4>
+    <div className="text-center mt-5">
+      <h4 className="text-muted">Balance Summary</h4>
 
       <div className="mb-4">
-        <label className="block font-semibold mb-2">Select Currency:</label>
+        <label className="block font-semibold mb-2 m-1">Select Currency:</label>
         <select
           value={currency}
           onChange={(e) => setCurrency(e.target.value)}
@@ -64,13 +64,13 @@ function BalanceSummary() {
         </select>
       </div>
 
-      <p>
+      <p className="p-3 bg-success bg-opacity-10 border border-success border-start-0 rounded-end fs-4 w-75 mx-auto">
         Income: {convertCurrency(income)} {currency}
       </p>
-      <p>
+      <p className="p-3 bg-danger bg-opacity-10 border border-danger border-end-0 rounded-start fs-4 w-75 mx-auto">
         Expenses: {convertCurrency(expenses)} {currency}
       </p>
-      <p>
+      <p className="p-3 bg-info bg-opacity-10 border border-info rounded-pill fs-4 w-75 mx-auto">
         Balance: {convertCurrency(balance)} {currency}
       </p>
     </div>

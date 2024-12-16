@@ -9,6 +9,7 @@ import {
   Legend,
 } from "recharts";
 import { FinanceContext } from "../../context/FinanceContext";
+import BalanceSummary from "./BalanceSummary";
 
 const ExpenseChart = () => {
   const { transactions } = useContext(FinanceContext);
@@ -58,7 +59,9 @@ const ExpenseChart = () => {
 
   return (
     <div className="p-4 bg-white shadow-md rounded-lg">
-      <h2 className="text-xl font-semibold mb-4">Expense Chart</h2>
+      <h2 className="text-xl font-semibold mb-4 text-muted text-center">
+        Expense Chart
+      </h2>
       <ResponsiveContainer width="100%" height={300}>
         <BarChart data={data}>
           <XAxis dataKey="category" />
@@ -82,13 +85,14 @@ const ExpenseChart = () => {
                   width={width}
                   height={height}
                   fill={barColor}
-                  rx={2} 
+                  rx={2}
                 />
               );
             }}
           />
         </BarChart>
       </ResponsiveContainer>
+      <BalanceSummary />
     </div>
   );
 };

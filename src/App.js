@@ -1,28 +1,29 @@
 import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Header from "./components/Navbar";
-import BalanceSummary from "./components/Dashboard/BalanceSummary";
 import CurrencyConverter from "./components/CurrencyConverter";
-import AddTransaction from "./components/Transactions/AddTransaction";
 import { FinanceProvider } from "./context/FinanceContext";
 import Footer from "./components/Footer";
 import ExpenseChart from "./components/Dashboard/ExpenseChart";
 import TransactionList from "./components/Transactions/TransactionList";
+import MainDashboard from "./components/MainDashboard";
 
 function App() {
   return (
-    <>
+    <Router>
       <FinanceProvider>
         <Header />
         <div className="container mt-4">
-          <ExpenseChart />
-          <BalanceSummary />
-          <TransactionList />
-          <AddTransaction />
-          <CurrencyConverter />
+          <MainDashboard />
+          <Routes>
+            <Route path="/" element={<ExpenseChart />} />
+            <Route path="/transactions" element={<TransactionList />} />
+            <Route path="/currency-converter" element={<CurrencyConverter />} />
+          </Routes>
         </div>
       </FinanceProvider>
       <Footer />
-    </>
+    </Router>
   );
 }
 

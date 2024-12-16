@@ -31,8 +31,8 @@ const CurrencyConverter = () => {
 
   return (
     <div className="container mt-4">
-      <h1>Valyuta Konvertori</h1>
-      <div className="form-group">
+      <h1 className="text-muted mt-5 text-center">Valyuta Konvertori</h1>
+      <div className="form-group p-3 w-25">
         <label>Asosiy Valyuta:</label>
         <select
           value={baseCurrency}
@@ -47,7 +47,7 @@ const CurrencyConverter = () => {
           <option value="RUB">Russian Ruble</option>
         </select>
       </div>
-      <div className="form-group">
+      <div className="form-group p-3 w-25">
         <label>Maqsad Valyutasi:</label>
         <select
           value={targetCurrency}
@@ -62,7 +62,7 @@ const CurrencyConverter = () => {
           <option value="RUB">Russian Ruble</option>
         </select>
       </div>
-      <div className="form-group">
+      <div className="form-group p-3 w-25">
         <label>Ma’lum miqdor:</label>
         <input
           type="number"
