@@ -13,8 +13,9 @@ Loyihani ishga tushirish uchun kompyuteringizda quyidagi dasturlar o'rnatilgan b
 
 Loyihani yuklab olib, ishga tushirish uchun quyidagi amallarni bajaring:
 
-1. **Kodni yuklab olish**  
-   Terminal yoki buyruqlar oynasida loyiha fayllarini yuklang:
+**Kodni yuklab olish**
+
+Terminal yoki buyruqlar oynasida loyiha fayllarini yuklang:
 
 ```bash
 git clone https://github.com/OkiljonDadakhanov/finance-dashboard.git
@@ -32,6 +33,12 @@ Ikonkalar ishlashi uchun:
 
 ```bash
 npm install react-icons --save
+```
+
+Chartlar uchun:
+
+```bash
+npm install recharts
 ```
 
 Loyihani ishga tushirish
