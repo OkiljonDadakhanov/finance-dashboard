@@ -20,7 +20,6 @@ function AddTransaction() {
       type: formData.type,
     });
 
-    // Clear form fields
     setFormData({
       description: "",
       amount: "",

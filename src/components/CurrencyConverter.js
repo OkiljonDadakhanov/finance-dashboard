@@ -42,6 +42,9 @@ const CurrencyConverter = () => {
           <option value="USD">USD</option>
           <option value="EUR">EUR</option>
           <option value="UZS">UZS</option>
+          <option value="AED">UAE Dirham</option>
+          <option value="INR">Indian Rupee</option>
+          <option value="RUB">Russian Ruble</option>
         </select>
       </div>
       <div className="form-group">
@@ -54,6 +57,9 @@ const CurrencyConverter = () => {
           <option value="USD">USD</option>
           <option value="EUR">EUR</option>
           <option value="UZS">UZS</option>
+          <option value="AED">UAE Dirham</option>
+          <option value="INR">Indian Rupee</option>
+          <option value="RUB">Russian Ruble</option>
         </select>
       </div>
       <div className="form-group">

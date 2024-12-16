@@ -7,9 +7,8 @@ import ExpenseChart from "../Dashboard/ExpenseChart";
 const Dashboard = () => {
   const { transactions } = useContext(FinanceContext);
 
-  // Extract and group expenses by category
   const expenses = transactions
-    .filter((transaction) => transaction.type === "expense") // Filter only expenses
+    .filter((transaction) => transaction.type === "expense") 
     .reduce((acc, transaction) => {
       const existingCategory = acc.find(
         (item) => item.category === transaction.description
@@ -30,13 +29,10 @@ const Dashboard = () => {
     <div className="container mx-auto p-4">
       <h1 className="text-2xl font-bold text-center mb-6">Expense Tracker</h1>
 
-      {/* Add Transaction Form */}
       <AddTransaction />
 
-      {/* Transaction List */}
       <TransactionList />
 
-      {/* Expense Chart */}
       <ExpenseChart expenses={expenses} />
     </div>
   );

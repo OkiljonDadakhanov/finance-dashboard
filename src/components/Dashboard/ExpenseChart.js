@@ -35,7 +35,6 @@ const ExpenseChart = () => {
     },
   ];
 
-  // Custom tooltip to show description
   const CustomTooltip = ({ active, payload }) => {
     if (active && payload && payload.length) {
       const { category, amount, type, description } = payload[0].payload;
@@ -66,7 +65,6 @@ const ExpenseChart = () => {
           <YAxis />
           <Tooltip content={<CustomTooltip />} />
           <Legend />
-          {/* Separate bars for income and expenses */}
           <Bar
             dataKey="amount"
             barSize={40}
@@ -84,7 +82,7 @@ const ExpenseChart = () => {
                   width={width}
                   height={height}
                   fill={barColor}
-                  rx={2} // Optional rounded corners
+                  rx={2} 
                 />
               );
             }}
