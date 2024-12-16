@@ -75,8 +75,6 @@ Context API yordamida ma'lumotlar butun loyiha bo'ylab uzatildi.
 
 **Kelajakdagi Yaxshilanishlar:**
 
-Mahalliy xotira: Tranzaktsiyalarni brauzer xotirasida saqlash.
-Filtr funksiyasi: Sana va miqdorga qarab tranzaktsiyalarni saralash.
 Backend bog'lanishi: Ma'lumotlarni serverda saqlash.
 
 _Yuqoridagi README.md sintaksislar [Github docs](#https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax) orqali tayyorlandi._
