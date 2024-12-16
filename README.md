@@ -1,70 +1,71 @@
-# Getting Started with Create React App
+# Moliyaviy Tranzaktsiyalarni Kuzatish Dasturi
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Ushbu loyiha foydalanuvchiga **daromadlar** va **xarajatlarni** boshqarish hamda ularni grafik ko'rinishida kuzatishga yordam beradi.
 
-## Available Scripts
+## Talablar
 
-In the project directory, you can run:
+Loyihani ishga tushirish uchun kompyuteringizda quyidagi dasturlar o'rnatilgan bo'lishi kerak:
 
-### `npm start`
+- [Node.js](https://nodejs.org/)
+- [npm](https://www.npmjs.com/) (Node Package Manager)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## O'rnatish va Ishga Tushirish
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Loyihani yuklab olib, ishga tushirish uchun quyidagi amallarni bajaring:
 
-### `npm test`
+1. **Kodni yuklab olish**  
+    Terminal yoki buyruqlar oynasida loyiha fayllarini yuklang:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+   ```bash
+   git clone https://github.com/OkiljonDadakhanov/finance-dashboard.git
+   cd <finance-dashboard>
+   ```
 
-### `npm run build`
+   Kerakli paketlarni o'rnatish
+   Loyihani ishga tushirish uchun zarur bo'lgan kutubxonalarni o'rnating:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```bash
+npm install
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Loyihani ishga tushirish
+Dastur ishga tushiriladi va lokal serverda ochiladi:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```bash
+npm start
+```
 
-### `npm run eject`
+Brauzeringizda http://localhost:3000 sahifasini ochib dasturdan foydalanishingiz mumkin.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Eslatma: Kodga o'zgartirish kiritganingizda sahifa avtomatik tarzda qayta yuklanadi.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Loyihadan Foydalanish
+Tranzaktsiya qo'shish:
+Yangi daromad yoki xarajatni kiritish uchun miqdor, tavsif va turini tanlang.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Grafik ko'rinish:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Daromadlar yashil rangda ko'rsatiladi.
+Xarajatlar qizil rangda ko'rsatiladi.
+Hisobotlar: Moliyaviy oqimlarni grafik orqali ko'rishingiz mumkin.
 
-## Learn More
+Loyihani Ishlab Chiqishda Foydalanilgan Texnologiyalar
+React.js – foydalanuvchi interfeyslarini yaratish.
+Recharts – ma'lumotlarni grafik ko'rinishida ko'rsatish.
+Tailwind CSS – loyihani dizaynlash uchun.
+Ishlash Jarayoni
+Loyiha ishga tushirilgandan so'ng:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Tranzaktsiyalar qo'shiladi va grafikda aks ettiriladi.
+Ma'lumotlar dinamik ravishda Context API orqali boshqariladi.
+Muammolar va Ularning Yechimlari
+Grafikda ranglarni dinamik o'zgartirish:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Daromadlar uchun yashil, xarajatlar uchun qizil rang belgilandi.
+Tranzaktsiyalarni ulash:
+Context API yordamida ma'lumotlar butun loyiha bo'ylab uzatildi.
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Kelajakdagi Yaxshilanishlar
+Mahalliy xotira: Tranzaktsiyalarni brauzer xotirasida saqlash.
+Filtr funksiyasi: Sana va miqdorga qarab tranzaktsiyalarni saralash.
+Backend bog'lanishi: Ma'lumotlarni serverda saqlash.

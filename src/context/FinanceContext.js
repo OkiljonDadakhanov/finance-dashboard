@@ -4,12 +4,13 @@ export const FinanceContext = createContext();
 
 export const FinanceProvider = ({ children }) => {
   const [transactions, setTransactions] = useState([]);
-  const [currencyRates, setCurrencyRates] = useState({});
+
+  const addTransaction = (transaction) => {
+    setTransactions((prevTransactions) => [...prevTransactions, transaction]);
+  };
 
   return (
-    <FinanceContext.Provider
-      value={{ transactions, setTransactions, currencyRates, setCurrencyRates }}
-    >
+    <FinanceContext.Provider value={{ transactions, addTransaction }}>
       {children}
     </FinanceContext.Provider>
   );
