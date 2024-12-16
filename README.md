@@ -14,15 +14,15 @@ Loyihani ishga tushirish uchun kompyuteringizda quyidagi dasturlar o'rnatilgan b
 Loyihani yuklab olib, ishga tushirish uchun quyidagi amallarni bajaring:
 
 1. **Kodni yuklab olish**  
-    Terminal yoki buyruqlar oynasida loyiha fayllarini yuklang:
+   Terminal yoki buyruqlar oynasida loyiha fayllarini yuklang:
 
-   ```bash
+```bash
    git clone https://github.com/OkiljonDadakhanov/finance-dashboard.git
    cd finance-dashboard
-   ```
+```
 
-   Kerakli paketlarni o'rnatish
-   Loyihani ishga tushirish uchun zarur bo'lgan kutubxonalarni o'rnating:
+Kerakli paketlarni o'rnatish
+Loyihani ishga tushirish uchun zarur bo'lgan kutubxonalarni o'rnating:
 
 ```bash
 npm install
