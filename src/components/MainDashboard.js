@@ -6,48 +6,99 @@ import { MdCurrencyExchange } from "react-icons/md";
 
 export default function MainDashboard() {
   return (
-    <div className="p-3 border rounded shadow-sm bg-light w-25">
-      <ul className="nav nav-pills flex-column">
-        <li className="nav-item mb-2">
-          <NavLink
-            to="/"
-            className={({ isActive }) =>
-              isActive
-                ? "nav-link active bg-primary text-white"
-                : "nav-link text-dark"
-            }
-          >
-            <RxDashboard className="me-2" />
-            Dashboard
-          </NavLink>
-        </li>
-        <li className="nav-item mb-2 ">
-          <NavLink
-            to="/transactions"
-            className={({ isActive }) =>
-              isActive
-                ? "nav-link active bg-primary text-white"
-                : "nav-link text-dark"
-            }
-          >
-            <AiOutlineTransaction className="me-2" />
-            View Transactions
-          </NavLink>
-        </li>
-        <li className="nav-item ">
-          <NavLink
-            to="/currency-converter"
-            className={({ isActive }) =>
-              isActive
-                ? "nav-link active bg-primary text-white"
-                : "nav-link text-dark"
-            }
-          >
-            <MdCurrencyExchange className="me-2" />
-            Currency Converter
-          </NavLink>
-        </li>
-      </ul>
+    <div className="p-3 border rounded shadow-sm bg-light">
+      <div className="d-none d-md-block"> {/* Hide sidebar on mobile */}
+        <div className="w-25">
+          <ul className="nav nav-pills flex-column">
+            <li className="nav-item mb-2">
+              <NavLink
+                to="/"
+                className={({ isActive }) =>
+                  isActive
+                    ? "nav-link active bg-primary text-white"
+                    : "nav-link text-dark"
+                }
+              >
+                <RxDashboard className="me-2" />
+                Dashboard
+              </NavLink>
+            </li>
+            <li className="nav-item mb-2">
+              <NavLink
+                to="/transactions"
+                className={({ isActive }) =>
+                  isActive
+                    ? "nav-link active bg-primary text-white"
+                    : "nav-link text-dark"
+                }
+              >
+                <AiOutlineTransaction className="me-2" />
+                View Transactions
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink
+                to="/currency-converter"
+                className={({ isActive }) =>
+                  isActive
+                    ? "nav-link active bg-primary text-white"
+                    : "nav-link text-dark"
+                }
+              >
+                <MdCurrencyExchange className="me-2" />
+                Currency Converter
+              </NavLink>
+            </li>
+          </ul>
+        </div>
+      </div>
+      
+      {/* Sidebar for mobile */}
+      <div className="d-block d-md-none">
+        <div className="w-100">
+          <ul className="nav nav-pills flex-column">
+            <li className="nav-item mb-2">
+              <NavLink
+                to="/"
+                className={({ isActive }) =>
+                  isActive
+                    ? "nav-link active bg-primary text-white"
+                    : "nav-link text-dark"
+                }
+              >
+                <RxDashboard className="me-2" />
+                Dashboard
+              </NavLink>
+            </li>
+            <li className="nav-item mb-2">
+              <NavLink
+                to="/transactions"
+                className={({ isActive }) =>
+                  isActive
+                    ? "nav-link active bg-primary text-white"
+                    : "nav-link text-dark"
+                }
+              >
+                <AiOutlineTransaction className="me-2" />
+                View Transactions
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink
+                to="/currency-converter"
+                className={({ isActive }) =>
+                  isActive
+                    ? "nav-link active bg-primary text-white"
+                    : "nav-link text-dark"
+                }
+              >
+                <MdCurrencyExchange className="me-2" />
+                Currency Converter
+              </NavLink>
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
   );
 }
