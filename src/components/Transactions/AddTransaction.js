@@ -7,7 +7,7 @@ function AddTransaction() {
     description: "",
     amount: "",
     type: "income",
-    date: "", // Added date field
+    date: "", 
   });
 
   const handleSubmit = (e) => {
@@ -19,7 +19,7 @@ function AddTransaction() {
       description: formData.description,
       amount: parseFloat(formData.amount),
       type: formData.type,
-      date: formData.date, // Include date in the transaction
+      date: formData.date, 
     });
 
     setFormData({

@@ -1,16 +1,40 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { FinanceContext } from "../../context/FinanceContext";
 import AddTransaction from "./AddTransaction";
+import { CiCalendarDate } from "react-icons/ci";
+import { CiEdit } from "react-icons/ci";
+import { MdDeleteForever } from "react-icons/md";
 
 const TransactionList = () => {
-  const { transactions } = useContext(FinanceContext);
+  const { transactions, deleteTransaction, editTransaction } =
+    useContext(FinanceContext);
+  const [editIndex, setEditIndex] = useState(null);
+  const [editData, setEditData] = useState({
+    description: "",
+    amount: "",
+    type: "",
+    date: "",
+  });
 
-  const incomeTransactions = transactions.filter(
-    (transaction) => transaction.type === "income"
-  );
-  const expenseTransactions = transactions.filter(
-    (transaction) => transaction.type === "expense"
-  );
+  const handleEditClick = (index) => {
+    setEditIndex(index);
+    setEditData(transactions[index]);
+  };
+
+  const handleEditSubmit = (e) => {
+    e.preventDefault();
+    if (!editData.description || !editData.amount || !editData.date) return;
+
+    editTransaction(editIndex, {
+      description: editData.description,
+      amount: parseFloat(editData.amount),
+      type: editData.type,
+      date: editData.date,
+    });
+
+    setEditIndex(null);
+    setEditData({ description: "", amount: "", type: "income", date: "" });
+  };
 
   return (
     <div className="p-4 bg-white shadow-lg rounded-lg mt-4 container">
@@ -21,51 +45,175 @@ const TransactionList = () => {
       </h2>
       <div className="row d-flex justify-content-center">
         <div className="col-sm">
-          <h5 className="text-success">Income</h5>
-          {incomeTransactions.length === 0 ? (
+          <h5 className="text-success text-center">Income</h5>
+          {transactions.filter((t) => t.type === "income").length === 0 ? (
             <p className="text-muted">No income transactions yet.</p>
           ) : (
             <ul className="list-group list-group-flush">
-              {incomeTransactions.map((transaction, index) => (
-                <li key={index} className="py-2 list-group-item">
-                  <div>
-                    <p className="text-info font-medium h3">
-                      {transaction.description}
-                    </p>
-                    <span className="text-sm font-bold text-success">
-                      +${Math.abs(transaction.amount)}
-                    </span>
-                  </div>
-                  <span className="text-secondary text-sm badge">
-                    {new Date(transaction.date).toLocaleDateString()}
-                  </span>
-                </li>
-              ))}
+              {transactions.map((transaction, index) => {
+                if (transaction.type !== "income") return null;
+
+                return editIndex === index ? (
+                  <li key={index} className="py-2 list-group-item">
+                    <form
+                      onSubmit={handleEditSubmit}
+                      className="d-flex flex-column"
+                    >
+                      <input
+                        type="text"
+                        value={editData.description}
+                        onChange={(e) =>
+                          setEditData({
+                            ...editData,
+                            description: e.target.value,
+                          })
+                        }
+                        placeholder="Description"
+                        className="form-control mb-2"
+                      />
+                      <input
+                        type="number"
+                        value={editData.amount}
+                        onChange={(e) =>
+                          setEditData({ ...editData, amount: e.target.value })
+                        }
+                        placeholder="Amount"
+                        className="form-control mb-2"
+                      />
+                      <input
+                        type="date"
+                        value={editData.date}
+                        onChange={(e) =>
+                          setEditData({ ...editData, date: e.target.value })
+                        }
+                        className="form-control mb-2"
+                      />
+                      <button type="submit" className="btn btn-success btn-sm">
+                        Save
+                      </button>
+                    </form>
+                  </li>
+                ) : (
+                  <li
+                    key={index}
+                    className="py-2 list-group-item d-flex justify-content-between align-items-center"
+                  >
+                    <div>
+                      <p className="text-info font-medium h3 ms-2">
+                        {transaction.description}
+                      </p>
+                      <p className="text-sm font-bold text-danger ms-2">
+                        -${Math.abs(transaction.amount)}
+                      </p>
+                      <p className="text-secondary text-sm badge ">
+                        <CiCalendarDate size={20} className="mt-n3" />
+                        {new Date(transaction.date).toLocaleDateString()}
+                      </p>
+                    </div>
+                    <div>
+                      <button
+                        onClick={() => handleEditClick(index)}
+                        className="btn btn-warning btn-sm me-2"
+                      >
+                        <CiEdit size={20} />
+                      </button>
+                      <button
+                        onClick={() => deleteTransaction(index)}
+                        className="btn btn-danger btn-sm"
+                      >
+                        <MdDeleteForever size={20} />
+                      </button>
+                    </div>
+                  </li>
+                );
+              })}
             </ul>
           )}
         </div>
 
         <div className="col-sm">
-          <h5 className="text-danger">Expense</h5>
-          {expenseTransactions.length === 0 ? (
+          <h5 className="text-danger text-center">Expense</h5>
+          {transactions.filter((t) => t.type === "expense").length === 0 ? (
             <p className="text-muted">No expense transactions yet.</p>
           ) : (
             <ul className="list-group list-group-flush">
-              {expenseTransactions.map((transaction, index) => (
-                <li key={index} className="py-2 list-group-item">
-                  <div>
-                    <p className="text-info font-medium h3">
-                      {transaction.description}
-                    </p>
-                    <span className="text-sm font-bold text-danger">
-                      -${Math.abs(transaction.amount)}
-                    </span>
-                  </div>
-                  <span className="text-secondary text-sm badge">
-                    {new Date(transaction.date).toLocaleDateString()}
-                  </span>
-                </li>
-              ))}
+              {transactions.map((transaction, index) => {
+                if (transaction.type !== "expense") return null;
+
+                return editIndex === index ? (
+                  <li key={index} className="py-2 list-group-item">
+                    <form
+                      onSubmit={handleEditSubmit}
+                      className="d-flex flex-column"
+                    >
+                      <input
+                        type="text"
+                        value={editData.description}
+                        onChange={(e) =>
+                          setEditData({
+                            ...editData,
+                            description: e.target.value,
+                          })
+                        }
+                        placeholder="Description"
+                        className="form-control mb-2"
+                      />
+                      <input
+                        type="number"
+                        value={editData.amount}
+                        onChange={(e) =>
+                          setEditData({ ...editData, amount: e.target.value })
+                        }
+                        placeholder="Amount"
+                        className="form-control mb-2"
+                      />
+                      <input
+                        type="date"
+                        value={editData.date}
+                        onChange={(e) =>
+                          setEditData({ ...editData, date: e.target.value })
+                        }
+                        className="form-control mb-2"
+                      />
+                      <button type="submit" className="btn btn-success btn-sm">
+                        Save
+                      </button>
+                    </form>
+                  </li>
+                ) : (
+                  <li
+                    key={index}
+                    className="py-2 list-group-item d-flex justify-content-between align-items-center"
+                  >
+                    <div>
+                      <p className="text-info font-medium h3  ms-2">
+                        {transaction.description}
+                      </p>
+                      <p className="text-sm font-bold text-danger  ms-2">
+                        -${Math.abs(transaction.amount)}
+                      </p>
+                      <p className="text-secondary text-sm badge me-2">
+                        <CiCalendarDate size={20} />
+                        {new Date(transaction.date).toLocaleDateString()}
+                      </p>
+                    </div>
+                    <div>
+                      <button
+                        onClick={() => handleEditClick(index)}
+                        className="btn btn-warning btn-sm me-2"
+                      >
+                        <CiEdit size={20} />
+                      </button>
+                      <button
+                        onClick={() => deleteTransaction(index)}
+                        className="btn btn-danger btn-sm"
+                      >
+                        <MdDeleteForever size={20} />
+                      </button>
+                    </div>
+                  </li>
+                );
+              })}
             </ul>
           )}
         </div>
