@@ -41,6 +41,12 @@ Chartlar uchun:
 npm install recharts
 ```
 
+API call uchun:
+
+```bash
+npm install axios
+```
+
 Loyihani ishga tushirish
 Dastur ishga tushiriladi va lokal serverda ochiladi:
 
