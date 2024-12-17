@@ -26,7 +26,7 @@ function AddTransaction() {
       description: "",
       amount: "",
       type: "income",
-      date: "", // Reset date
+      date: "", 
     });
   };
 
