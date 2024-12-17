@@ -103,7 +103,7 @@ const TransactionList = () => {
                         {transaction.description}
                       </p>
                       <p className="text-sm font-bold text-success ms-2">
-                        -${Math.abs(transaction.amount)}
+                        +${Math.abs(transaction.amount)}
                       </p>
                       <p className="text-secondary text-sm badge ">
                         <CiCalendarDate size={20} className="mt-n3" />
