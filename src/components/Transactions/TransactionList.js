@@ -102,7 +102,7 @@ const TransactionList = () => {
                       <p className="text-info font-medium h3 ms-2">
                         {transaction.description}
                       </p>
-                      <p className="text-sm font-bold text-danger ms-2">
+                      <p className="text-sm font-bold text-success ms-2">
                         -${Math.abs(transaction.amount)}
                       </p>
                       <p className="text-secondary text-sm badge ">
